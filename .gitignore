@@ -3,6 +3,8 @@ ros2_ws/build/
 ros2_ws/install/
 ros2_ws/log/
 px4/build/
+runs/
+.pytest_cache/
 
 # Ignore downloaded binaries and temporary files
 *.AppImage

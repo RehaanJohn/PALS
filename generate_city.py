@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
 import random
+import argparse
+from pathlib import Path
+
+parser = argparse.ArgumentParser(description="Generate the seeded PALS urban Gazebo world")
+parser.add_argument("--seed", type=int, default=42)
+parser.add_argument("--output", type=Path, default=Path(__file__).resolve().parent / "px4/Tools/simulation/gz/worlds/urban.sdf")
+args = parser.parse_args()
 sdf = """<?xml version="1.0"?>
 <sdf version="1.9">
   <world name="urban">
@@ -63,7 +70,7 @@ for y in range(-grid_size, grid_size + 1, block_size):
 colors = [(0.5,0.6,0.7), (0.75,0.6,0.45), (0.85,0.75,0.5), (0.6,0.65,0.6), (0.8,0.7,0.55), (0.45,0.55,0.7), (0.65,0.55,0.5), (0.55,0.5,0.45), (0.9,0.8,0.6)]
 b_count = 0
 t_count = 0
-random.seed(42)
+random.seed(args.seed)
 
 for ix in range(-grid_size + block_size//2, grid_size, block_size):
     for iy in range(-grid_size + block_size//2, grid_size, block_size):
@@ -80,6 +87,7 @@ for ix in range(-grid_size + block_size//2, grid_size, block_size):
             t_count+=1
 
 sdf += '  </world>\n</sdf>'
-with open('/home/salman/drone_sim/px4/Tools/simulation/gz/worlds/urban.sdf', 'w') as f:
+args.output.parent.mkdir(parents=True, exist_ok=True)
+with args.output.open('w') as f:
     f.write(sdf)
 print(f'Done! Generated {b_count} buildings and {t_count} trees.')

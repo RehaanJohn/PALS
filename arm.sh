@@ -1,11 +1,12 @@
 #!/bin/bash
+PALS_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 # =============================================================
 # arm.sh — Arm drone and enable OFFBOARD mode
 # Run this AFTER teleop is running in Terminal 3
 # =============================================================
 
 source /opt/ros/humble/setup.bash
-source "${HOME}/drone_sim/ros2_ws/install/setup.bash"
+source "${PALS_ROOT}/ros2_ws/install/setup.bash"
 
 echo ""
 echo "Arming drone..."

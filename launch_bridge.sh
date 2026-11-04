@@ -1,4 +1,5 @@
 #!/bin/bash
+PALS_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 # =============================================================
 # launch_bridge.sh — MAVROS Bridge
 # Terminal 2 — Run after Gazebo is loaded (Terminal 1)
@@ -6,7 +7,7 @@
 # =============================================================
 
 source /opt/ros/humble/setup.bash
-source "${HOME}/drone_sim/ros2_ws/install/setup.bash"
+source "${PALS_ROOT}/ros2_ws/install/setup.bash"
 
 echo ""
 echo "╔══════════════════════════════════════════════╗"
@@ -17,7 +18,7 @@ echo ""
 
 # ── Start MAVROS in the background ───────────────────────────
 echo "[1/2] Starting MAVROS bridge..."
-ros2 launch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557" \
+ros2 launch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14580" \
     tgt_system:=1 \
     tgt_component:=1 \
     log_output:=screen &

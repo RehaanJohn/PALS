@@ -1,0 +1,8 @@
+{
+  "world": "urban",
+  "drones": [
+    {"id": "drone_1", "instance": 0, "spawn": [-15, 0, 0.3, 0, 0, 0], "altitude": 5.0},
+    {"id": "drone_2", "instance": 1, "spawn": [0, 0, 0.3, 0, 0, 0], "altitude": 8.0},
+    {"id": "drone_3", "instance": 2, "spawn": [15, 0, 0.3, 0, 0, 0], "altitude": 11.0}
+  ]
+}

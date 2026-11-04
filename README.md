@@ -1,5 +1,11 @@
 # PALS
 
+Multi-drone implementation is now available: see [the swarm run guide](SWARM_GUIDE.md)
+for the three-instance launcher, autonomous waypoint demo, and Ubuntu validation steps.
+See [the implementation plan](IMPLEMENTATION_PLAN.md) for the remaining fleet coordination work.
+The single-drone instructions below describe the original prototype; use this checkout's
+path in place of `~/drone_sim`.
+
 # 🛸 Drone Simulation Project: Complete Guide
 =============================================
 Verified against: ROS2 Humble | PX4 v1.14.x | Gazebo Harmonic | Ubuntu 22.04
